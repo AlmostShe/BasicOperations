@@ -1,6 +1,9 @@
 <#
- 功能：递归遍历PowerShell抽象语法树，将每个节点存储于ArrayList对象
- 
+    功能：
+        递归遍历PowerShell抽象语法树，将每个节点存储于ArrayList对象
+    用例：
+        输入：
+            Get-Node -Path  "C:\Users\...\test\2.ps1"
  #>
 
  $nodeList =New-Object -TypeName System.Collections.ArrayList
@@ -71,5 +74,3 @@ Function TraverseAST{
         }
     }
 }
-
-Get-Node -Path  "C:\Users\19393\Desktop\test\2.ps1"
