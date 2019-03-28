@@ -4,6 +4,8 @@
     用例：
         输入：
             Get-Node -Path  "C:\Users\...\test\2.ps1"
+        输出：
+            ArrayList对象存储语法树的先序遍历结果
  #>
 
  $nodeList =New-Object -TypeName System.Collections.ArrayList
@@ -60,6 +62,7 @@ Function TraverseAST{
             elseif ($null -ne $collection){
                     for ($i = 0; $i -lt $collection.Length; $i++)
                     {
+                        $null=$nodeList.Add($childObject[$i])
                         TraverseAST ($collection[$i])
                     }
                 }# 处理if和switch字句
@@ -74,3 +77,5 @@ Function TraverseAST{
         }
     }
 }
+
+Get-Node -Path  "C:\Users\19393\Desktop\test\2.ps1"
